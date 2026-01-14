@@ -102,4 +102,6 @@ htmlcov/
 terraform.tfstate
 terraform.tfstate.backup
 *.tfvars
-terraform/
+
+# Allow terraform config files but protect secrets
+!terraform.tfvars.example

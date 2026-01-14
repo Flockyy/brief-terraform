@@ -1,0 +1,23 @@
+# Example Terraform variables file
+# Copy this file to terraform.tfvars and fill in your values
+
+# Azure subscription ID (required)
+# Find it with: az account show --query id -o tsv
+azure_subscription_id = "your-subscription-id-here"
+
+# Project configuration
+project_name = "nyctaxi"
+environment  = "dev"
+location     = "francecentral"
+
+# PostgreSQL configuration
+postgres_admin_username = "citus"
+postgres_admin_password = "YourSecurePassword123!"
+
+# Data ingestion configuration
+start_date = "2024-01"
+end_date   = "2024-03"
+
+# Optional: Your public IP address for PostgreSQL access
+# Find it with: curl -4 ifconfig.me
+allowed_ip_address = ""
