@@ -54,13 +54,12 @@ output "log_analytics_workspace_id" {
   value       = azurerm_log_analytics_workspace.main.id
 }
 
-# Container App outputs commented out - service not available
-# output "container_app_name" {
-#   description = "Name of the container app"
-#   value       = azurerm_container_app.pipeline.name
-# }
-# 
-# output "container_app_url" {
-#   description = "URL of the container app"
-#   value       = azurerm_container_app.pipeline.latest_revision_fqdn
-# }
+output "container_app_name" {
+  description = "Name of the container app"
+  value       = azurerm_container_app.pipeline.name
+}
+
+output "container_app_fqdn" {
+  description = "FQDN of the container app"
+  value       = azurerm_container_app.pipeline.latest_revision_fqdn
+}

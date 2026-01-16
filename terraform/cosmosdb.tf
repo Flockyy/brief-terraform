@@ -19,17 +19,17 @@ resource "azurerm_cosmosdb_postgresql_cluster" "main" {
 
 # Firewall rule to allow Azure services
 resource "azurerm_cosmosdb_postgresql_firewall_rule" "azure_services" {
-  name       = "AllowAzureServices"
-  cluster_id = azurerm_cosmosdb_postgresql_cluster.main.id
+  name             = "AllowAzureServices"
+  cluster_id       = azurerm_cosmosdb_postgresql_cluster.main.id
   start_ip_address = "0.0.0.0"
   end_ip_address   = "0.0.0.0"
 }
 
 # Optional: Firewall rule for your IP address
 resource "azurerm_cosmosdb_postgresql_firewall_rule" "client_ip" {
-  count              = var.allowed_ip_address != "" ? 1 : 0
-  name               = "AllowClientIP"
-  cluster_id         = azurerm_cosmosdb_postgresql_cluster.main.id
-  start_ip_address   = var.allowed_ip_address
-  end_ip_address     = var.allowed_ip_address
+  count            = var.allowed_ip_address != "" ? 1 : 0
+  name             = "AllowClientIP"
+  cluster_id       = azurerm_cosmosdb_postgresql_cluster.main.id
+  start_ip_address = var.allowed_ip_address
+  end_ip_address   = var.allowed_ip_address
 }
